@@ -1,10 +1,10 @@
 Executed against EdgeCast:
 
-    ./httpbench.rb <(awk '{print "http://edgecasturl" $1}' event_images.txt | head -10000)
+    ./cdnbench.rb <(awk '{print "http://edgecasturl" $1}' event_images.txt | head -10000)
 
 Run against Akamai:
     
-    ./httpbench.rb <(awk '{print "http://akamaiurl" $1}' event_images.txt | head -10000)
+    ./cdnbench.rb <(awk '{print "http://akamaiurl" $1}' event_images.txt | head -10000)
 
 
 Akamai Results:

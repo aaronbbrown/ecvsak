@@ -1,10 +1,10 @@
 Executed against EdgeCast:
 
-    ./cdnbench.rb <(awk '{print "http://edgecasturl" $1}' event_images.txt | head -10000)
+    ./cdnbench.rb <(awk '{print "http://edgecasturl" $1}' event_images.txt | head -10000) > ec.csv
 
 Run against Akamai:
     
-    ./cdnbench.rb <(awk '{print "http://akamaiurl" $1}' event_images.txt | head -10000)
+    ./cdnbench.rb <(awk '{print "http://akamaiurl" $1}' event_images.txt | head -10000) > ak.csv
 
 
 **Results from us-east-1**

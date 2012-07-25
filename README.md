@@ -14,7 +14,7 @@ Generate results from csv.  This will read ec.csv and generate ec.png:
 
 **Results from us-east-1**
 Akamai Results:
-![Akamai, size/ms](https://github.com/9minutesnooze/ecvsak/raw/master/ak_size_vs_ms.png)
+![Akamai, size/ms](https://github.com/9minutesnooze/ecvsak/raw/master/ak-us-east-1.png)
 
 EdgeCast Results:
-![EdgeCast, size/ms](https://github.com/9minutesnooze/ecvsak/raw/master/ec_size_vs_ms.png)
+![EdgeCast, size/ms](https://github.com/9minutesnooze/ecvsak/raw/master/ec-us-east-1.png)

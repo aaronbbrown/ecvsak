@@ -9,8 +9,6 @@ def hit_or_miss ( xcache )
   xcache =~ /hit/i ? "HIT" : "MISS"
 end
 
-timeout = 5
-
 puts "url_num,code,content-length,ms,hit/miss"
 ARGF.each_with_index do |url,i|
   resp = nil

@@ -7,6 +7,7 @@ Run against Akamai:
     ./cdnbench.rb <(awk '{print "http://akamaiurl" $1}' event_images.txt | head -10000)
 
 
+**Results from us-east-1**
 Akamai Results:
 ![Akamai, size/ms](https://github.com/9minutesnooze/ecvsak/raw/master/ak_size_vs_ms.png)
 

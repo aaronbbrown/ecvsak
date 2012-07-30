@@ -26,6 +26,6 @@ ARGF.each_with_index do |url,i|
       resp = HTTParty.get(url , :headers => {'Pragma' => 'akamai-x-cache-on',
                                              'Host'   => '0.icdn.ideeli.net' })
     end
-    puts "#{i+1},#{resp.code},#{resp.headers['content-length']},#{tm*1000},#{hit_or_miss(resp.headers['x-cache'])},#{options[:isp]},#{options[:cdn]}"
+    puts "#{i+1},#{resp.code},#{resp.headers['content-length']},#{tm*1000},#{hit_or_miss(resp.headers['x-cache'])},#{options[:cdn]},#{options[:isp]}"
   end
 end

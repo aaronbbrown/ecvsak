@@ -1,20 +1,18 @@
 Executed against EdgeCast:
 
-    ./cdnbench.rb <(awk '{print "http://edgecasturl" $1}' event_images.txt | head -10000) > ec.csv
+    ./cdnbench.rb -c edgecast -i us-east-1 <(awk '{print "http://edgecasturl" $1}' event_images.txt | head -10000) >> all.csv
 
 Run against Akamai:
     
-    ./cdnbench.rb <(awk '{print "http://akamaiurl" $1}' event_images.txt | head -10000) > ak.csv
+    ./cdnbench.rb -c akamai -i us-east-1 <(awk '{print "http://akamaiurl" $1}' event_images.txt | head -10000) >> all.csv
 
 
 Generate results from csv.  This will read ec.csv and generate ec.png:
 
     gnuplot -e 'CDN="EdgeCast"' -e 'PREFIX="ec"' generic.plot
 
+R plots generated with
+ 
+    ./genplots.rb
 
-**Results from us-east-1**
-Akamai Results:
-![Akamai, size/ms](https://github.com/9minutesnooze/ecvsak/raw/master/ak-us-east-1.png)
-
-EdgeCast Results:
-![EdgeCast, size/ms](https://github.com/9minutesnooze/ecvsak/raw/master/ec-us-east-1.png)
+R plots assume a working MySQL instance that has read/write access to /tmp and script is executed as a local user with read/write access to /tmp

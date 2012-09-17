@@ -8,6 +8,7 @@ require 'benchmark'
 require 'faraday'
 require 'faraday_middleware'
 
+$stdout.sync = true
 
 options = {}
 
@@ -39,7 +40,7 @@ unless cookies && cookies['current_user']
   exit 1
 end
 
-puts "url_num,code,content-length,ms,isp,adn"
+puts "url_num,code,content-length,ms,isp,source"
 
 conn = Faraday.new(:url => "http://#{options[:edge]}") do |c|
   c.use FaradayMiddleware::FollowRedirects
@@ -55,9 +56,8 @@ ARGF.each_with_index do |url,i|
   options[:iterations].times do
     tm = Benchmark.realtime do 
       resp = conn.get url 
-      pp resp.headers if resp.headers['content-length']
     end
-    puts "#{i+1},#{resp.status},#{resp.headers['content-length']},#{tm*1000},#{options[:isp]},#{options[:adn]}"
+    puts "#{i+1},#{resp.status},#{resp.headers['content-length'] || resp.body.length },#{tm*1000},#{options[:isp]},#{options[:adn] ? 'adn' : 'origin' }"
   end
 end
 

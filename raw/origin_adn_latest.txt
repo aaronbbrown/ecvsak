@@ -4999,7 +4999,6 @@ url_num,code,content-length,ms,isp,source
 1,200,23496,685.733079910278,us-west-1,origin
 1,200,23496,678.164958953857,us-west-1,origin
 1,200,23496,483.229875564575,us-west-1,origin
-url_num,code,content-length,ms,isp,source
 1,200,23496,515.356063842773,us-west-1,adn
 1,200,23496,568.342924118042,us-west-1,adn
 1,200,23496,561.22899055481,us-west-1,adn

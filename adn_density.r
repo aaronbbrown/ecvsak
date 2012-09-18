@@ -7,3 +7,7 @@ qplot(ms, data=twc, fill=source,geom="density",alpha=I(0.4),main="Response Time 
 useast <- subset(all, all$isp=='us-east-1')
 png('charts/adn_useast_latest.png', 1200,720)
 qplot(ms, data=useast, fill=source,geom="density",alpha=I(0.4),main="Response Time Density (us-east-1)\n/events/latest")+scale_x_log10(breaks=seq(0,1000,100),limits=c(200,2000))
+
+uswest <- subset(all, all$isp=='us-west-1')
+png('charts/adn_uswest_latest.png', 1200,720)
+qplot(ms, data=uswest, fill=source,geom="density",alpha=I(0.4),main="Response Time Density (us-west-1)\n/events/latest")+scale_x_log10(breaks=seq(0,1000,100),limits=c(200,2000))

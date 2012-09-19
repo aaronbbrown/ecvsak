@@ -8,6 +8,17 @@ require 'benchmark'
 require 'faraday'
 require 'faraday_middleware'
 
+def login ( login, password ) 
+  uri = URI.parse("https://www.ideeli.com/login?MuttAndJeff=1")
+  http = Net::HTTP.new(uri.host, uri.port)
+  http.use_ssl = true
+  http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+  request = Net::HTTP::Post.new(uri.request_uri)
+  request.set_form_data( :login => login, :password => password )
+  http.request(request)['set-cookie']
+end
+
 $stdout.sync = true
 
 options = {}
@@ -21,17 +32,6 @@ opts.on("-n ITERATIONS", Integer, "Number of iterations") { |v| options[:iterati
 opts.on("-u USERNAME", String, "user name" ) { |v| options[:login] = v }
 opts.on("-p PASSWORD", String, "password" ) { |v| options[:password] = v }
 opts.parse!
-
-def login ( login, password ) 
-  uri = URI.parse("https://www.ideeli.com/login?MuttAndJeff=1")
-  http = Net::HTTP.new(uri.host, uri.port)
-  http.use_ssl = true
-  http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-
-  request = Net::HTTP::Post.new(uri.request_uri)
-  request.set_form_data( :login => login, :password => password )
-  http.request(request)['set-cookie']
-end 
 
 # log in!
 cookies = login(options[:login], options[:password])
